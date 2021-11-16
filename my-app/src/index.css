@@ -1,1 +1,22 @@
+@import url("https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Roboto:wght@100;300;400;500;700;900&display=swap");
 
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+  list-style: none;
+}
+
+html {
+  background-color: rgb(29, 29, 29);
+}
+
+a {
+  color: inherit;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(3, 0, 0, 0.411);
+  border-radius: 6px;
+}
