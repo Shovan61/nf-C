@@ -1,9 +1,46 @@
 import React from "react";
 import styled from "styled-components";
+import Poster from "./Poster";
+import Slider from "react-slick";
+import "slick-carousel/slick/slick.css";
+import "slick-carousel/slick/slick-theme.css";
 
 function MoviesCoursel(props) {
+  var settings = {
+    infinite: false,
+    speed: 500,
+    slidesToShow: 4,
+    slidesToScroll: 4,
+    initialSlide: 0,
+    responsive: [
+      {
+        breakpoint: 1024,
+        settings: {
+          slidesToShow: 3,
+          slidesToScroll: 3,
+          infinite: true,
+          dots: true,
+        },
+      },
+      {
+        breakpoint: 600,
+        settings: {
+          slidesToShow: 2,
+          slidesToScroll: 2,
+          initialSlide: 2,
+        },
+      },
+      {
+        breakpoint: 480,
+        settings: {
+          slidesToShow: 1,
+          slidesToScroll: 1,
+        },
+      },
+    ],
+  };
+
   const { name, values } = props;
-  //   console.log(values);
 
   const getName = (n) => {
     if (n === "popular") {
@@ -26,7 +63,11 @@ function MoviesCoursel(props) {
   return (
     <Wrapper name={name}>
       <h1>{getName(name)}</h1>
-      <MoviesContainer></MoviesContainer>
+      <MoviesContainer {...settings}>
+        {values.map((cur, i) => {
+          return cur.poster_path ? <Poster key={i} {...cur} /> : null;
+        })}
+      </MoviesContainer>
     </Wrapper>
   );
 }
@@ -34,22 +75,19 @@ function MoviesCoursel(props) {
 export default MoviesCoursel;
 
 const Wrapper = styled.div`
-  margin-top: 4rem;
+  margin-top: 8rem;
   height: 30vh;
   width: 100%;
+  /* margin-bottom: ${(props) => (props.name === "drama" ? "3rem" : "0rem")}; */
+  padding: 2rem;
   & h1 {
-    color: white;
+    color: red;
     padding-left: 3rem;
+    text-align: start;
     font-weight: 500;
     letter-spacing: 2px;
-    height: 14%;
+    height: 20%;
   }
-  margin-bottom: ${(props) => (props.name === "drama" ? "3rem" : "0rem")};
 `;
 
-const MoviesContainer = styled.div`
-  display: flex;
-  align-items: center;
-  overflow-x: scroll;
-  height: 86%;
-`;
+const MoviesContainer = styled(Slider)``;

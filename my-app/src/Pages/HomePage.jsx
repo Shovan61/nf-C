@@ -25,7 +25,7 @@ function HomePage() {
     category.push(key);
     values.push(state.movies[key]);
   }
-  console.log(isBlack);
+
   return (
     <Wrapper>
       <NavBar isBlack={isBlack}>
