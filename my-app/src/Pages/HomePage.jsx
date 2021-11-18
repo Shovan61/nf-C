@@ -2,9 +2,19 @@ import React from "react";
 import styled from "styled-components";
 import netflix from "../images/netflix-logo.png";
 import profile from "../images/profile-logo.png";
-import { Hero } from "../Components";
+import { Hero, MoviesCoursel } from "../Components";
+import { useSelector } from "react-redux";
 
 function HomePage() {
+  const state = useSelector((state) => state);
+  let category = [];
+  let values = [];
+
+  for (let key in state.movies) {
+    category.push(key);
+    values.push(state.movies[key]);
+  }
+
   return (
     <Wrapper>
       <NavBar>
@@ -12,6 +22,10 @@ function HomePage() {
         <img style={{ height: "40%" }} src={profile} alt="" />
       </NavBar>
       <Hero />
+
+      {category.map((cur, i) => (
+        <MoviesCoursel name={cur} key={i} values={values[i]} />
+      ))}
     </Wrapper>
   );
 }
