@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import styled from "styled-components";
 import netflix from "../images/netflix-logo.png";
 import profile from "../images/profile-logo.png";
@@ -6,18 +6,29 @@ import { Hero, MoviesCoursel } from "../Components";
 import { useSelector } from "react-redux";
 
 function HomePage() {
+  const [isBlack, setisBlack] = useState(false);
   const state = useSelector((state) => state);
   let category = [];
   let values = [];
+
+  useEffect(() => {
+    window.addEventListener("scroll", () => {
+      if (window.scrollY > 70) {
+        setisBlack(true);
+      } else {
+        setisBlack(false);
+      }
+    });
+  }, []);
 
   for (let key in state.movies) {
     category.push(key);
     values.push(state.movies[key]);
   }
-
+  console.log(isBlack);
   return (
     <Wrapper>
-      <NavBar>
+      <NavBar isBlack={isBlack}>
         <img src={netflix} alt="" />
         <img style={{ height: "40%" }} src={profile} alt="" />
       </NavBar>
@@ -43,7 +54,8 @@ const NavBar = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  background-color: transparent;
+  transition: all 0.6s ease-in-out;
+  background-color: ${(props) => (props.isBlack ? "#000000" : "transparent")};
   position: fixed;
   top: 0;
   left: 0;

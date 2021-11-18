@@ -50,9 +50,10 @@ const Wrapper = styled.div`
   height: 60vh;
   width: 100%;
   background-image: url("${(props) => props.background}");
-  background-position: center center;
+  background-position: bottom bottom;
   background-size: cover;
   position: relative;
+  transition: all 1.25s ease-in-out;
 `;
 
 const Shadow = styled.div`
@@ -75,7 +76,7 @@ const Container = styled.div`
   padding-left: 5rem;
   height: 100%;
   width: 100%;
-
+  transition: all 1.25s ease-in-out;
   & h1 {
     color: white;
     font-weight: 500;
