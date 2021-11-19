@@ -3,7 +3,6 @@ import styled from "styled-components";
 import { imageBaseUrl } from "../helper";
 
 function Poster(props) {
-  console.log(props);
   const { poster_path } = props;
   const image = imageBaseUrl + poster_path;
   return (
@@ -27,6 +26,6 @@ const PosterWrapper = styled.div`
   }
 
   &:hover {
-    transform: scale(1.3);
+    transform: scale(1.1);
   }
 `;

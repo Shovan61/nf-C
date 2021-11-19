@@ -25,3 +25,40 @@ a {
   background: rgba(206, 206, 206, 0.411);
   border-radius: 6px;
 }
+/* .slick-slide {
+  margin: 0 -55px;
+} */
+/* the parent */
+/* .slick-list {
+  margin: 0 -27px;
+} */
+/* @media only screen and (min-width: 1350px) {
+  .slick-slide {
+    margin: 0 -65px;
+  }
+}
+@media only screen and (min-width: 1550px) {
+  .slick-slide {
+    margin: 0 -85px;
+  }
+}
+@media only screen and (min-width: 1750px) {
+  .slick-slide {
+    margin: 0 -90px;
+  }
+}
+@media only screen and (min-width: 1900px) {
+  .slick-slide {
+    margin: 0 -115px;
+  }
+}
+@media only screen and (max-width: 1233px) {
+  .slick-slide {
+    margin: 0 -17px;
+  }
+}
+@media only screen and (max-width: 700px) {
+  .slick-slide {
+    margin: 0 -5px;
+  }
+} */

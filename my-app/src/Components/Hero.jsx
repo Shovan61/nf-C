@@ -1,12 +1,12 @@
 import React from "react";
 import styled from "styled-components";
 import { useSelector } from "react-redux";
-import { randomMovie, imageBaseUrl } from "../helper";
+import { getArr, imageBaseUrl } from "../helper";
 
 function Hero() {
   const state = useSelector((state) => state);
-  const random = randomMovie(state.movies.popular);
-
+  const random = getArr(state.movies);
+  console.log(random);
   if (random === undefined) {
     return (
       <span
