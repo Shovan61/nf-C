@@ -13,6 +13,7 @@ import {
   getratedR,
   getdrama,
 } from "./features/moviesSlice";
+import test from "./test";
 
 function App() {
   const dispatch = useDispatch();

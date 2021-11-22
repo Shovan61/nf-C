@@ -2,7 +2,7 @@ import React from "react";
 import styled from "styled-components";
 import backimage from "../images/netflix-collection.jpg";
 import netflix from "../images/netflix-logo.png";
-import test from "../test";
+import { LoginHero } from "../Components";
 
 function LoginPage() {
   return (
@@ -11,6 +11,7 @@ function LoginPage() {
         <img src={netflix} alt="netflix" />
         <Button>Sign In</Button>
       </Nav>
+      <LoginHero />
       <DarkShadow></DarkShadow>
     </Wrapper>
   );
@@ -26,6 +27,9 @@ const Wrapper = styled.div`
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 `;
 
 const DarkShadow = styled.div`
@@ -50,7 +54,10 @@ const Nav = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-between;
-  position: relative;
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 100%;
   z-index: 100;
   & img {
     height: 100%;
@@ -68,5 +75,8 @@ const Button = styled.button`
   border-radius: 5px;
   &:hover {
     background-color: #ca0000;
+  }
+  &:active {
+    background-color: #a10000;
   }
 `;

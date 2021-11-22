@@ -1,38 +1,21 @@
-function sameFrequency(num1, num2) {
-  let arr1 = Array.from(num1.toString()).map((cur) => Number(cur));
-  let arr2 = Array.from(num2.toString()).map((cur) => Number(cur));
-
+function isPalindrome(...args) {
   let map = new Map();
 
-  arr1.forEach((number) => {
-    if (!map.get(number)) {
-      map.set(number, 1);
-    } else {
-      map.set(number, map.get(number) + 1);
+  args.forEach((cur, i) => {
+    map.set(i, cur);
+  });
+
+  let reversed = args.reverse();
+
+  let found = [];
+
+  reversed.forEach((cur, i) => {
+    if (cur !== map.get(i)) {
+      found.push(cur);
     }
   });
 
-  arr2.forEach((number) => {
-    if (!map.get(number)) {
-      map.set(number, 1);
-    } else {
-      map.set(number, map.get(number) - 1);
-    }
-  });
-
-  let nonFrequent = [];
-
-  map.forEach((value, key) => {
-    if (value !== 0) {
-      nonFrequent.push(key);
-    }
-  });
-
-  if (nonFrequent.length === 0) {
-    return true;
-  } else {
-    return false;
-  }
+  return found.length === 0 ? true : false;
 }
 
-console.log(sameFrequency(182, 281));
+console.log(isPalindrome(1, 2));
